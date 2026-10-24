@@ -320,11 +320,11 @@ if page == "🌿 AI Leaf Diagnosis (Scanner)":
                     latency_ms = 35.4
                     confidence = 0.9984
                     predicted_class = classes_list[0] if classes_list else "Tomato___Early_blight"
-                    if len(classes_list) > 0:
-    preds = np.zeros(len(classes_list))
-    preds[0] = 0.9984
-else:
-    preds = np.array([0.9984])
+                   if len(classes_list) > 0:
+                       preds = np.zeros(len(classes_list))
+                       preds[0] = 0.9984
+                   else:
+                       preds = np.array([0.9984])
                 # Compute Grad-CAM
                 heatmap = get_gradcam_heatmap(img_batch, model) if model is not None else np.ones((96, 96))
                 overlay_img, colored_heatmap = overlay_gradcam(pil_image, heatmap, alpha=0.5)
